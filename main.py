@@ -8,7 +8,7 @@ def main():
     os.makedirs("output/final", exist_ok=True)
     
     print("1. Story...")
-    title, script, desc = generate_story()
+        result = generate_story()     if isinstance(result, dict):         title = result.get('title', 'قصة واقعية')         script = result.get('script', result.get('story', ''))         desc = result.get('description', script[:100])     else:         # لو بيرجع tuple         try:             title, script, desc = result[0], result[1], result[2] if len(result) > 2 else result[1][:100]         except:             title = "قصة واقعية"             script = str(result)             desc = script[:100]
     print(f"Title: {title}")
     with open("output/story.json","w",encoding="utf-8") as f:
         json.dump({"title":title,"script":script,"description":desc},f,ensure_ascii=False,indent=2)
