@@ -1,0 +1,9 @@
+groq
+edge-tts
+requests
+Pillow
+moviepy==1.0.3
+noisereduce
+pydub
+numpy
+python-dotenv
